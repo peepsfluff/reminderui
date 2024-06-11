@@ -1,0 +1,74 @@
+
+<style>
+  .content {
+
+
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .floated {
+   margin-right:5px;
+   display: inline-block;
+
+}
+</style>
+
+<div class="content" role="main">
+
+<h1>SEND A REMINDER</h1>
+
+  <form [formGroup]="submitForm" (ngSubmit)="onSubmit()">
+  
+    <div>
+      <label for="email">
+        Email Address:
+      </label>
+  
+      <mat-form-field>
+        <mat-label>Enter email</mat-label>
+        <input id="email" type="text" formControlName="email" matInput>
+      </mat-form-field>
+  
+    </div>
+  
+    <br>
+  
+    <div>
+      <label for="message">
+        Message:
+      </label>
+  
+      <mat-form-field>
+        <mat-label>Enter reminder message</mat-label>
+        <textarea  id="message" type="text" formControlName="message" matInput></textarea>
+      </mat-form-field>
+    </div>
+  
+    <br>
+  
+    <div>
+      <label for="ttl">
+        TTL:
+      </label>
+  
+      <mat-form-field>
+        <mat-label>Enter ttl:</mat-label>
+        <input id="ttl" type="number" formControlName="ttl" matInput>
+      </mat-form-field>
+    </div>
+  
+  
+    <button type="submit" class="button" mat-raised-button color="primary">
+      Send Reminder
+    </button>
+  
+  </form>
+  
+  <br>
+  <h1 *ngIf="submitMessage"> {{submitMessageDisplay}} </h1>
+  <h1 *ngIf="!submitMessage"> {{submitMessageDisplay}} </h1>
+</div>
